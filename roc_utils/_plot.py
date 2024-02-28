@@ -180,6 +180,7 @@ def plot_mean_roc(rocs, auto_flip=True, show_all=False, ax=None, **kwargs):
     show_ci = kwargs.pop("show_ci", True)
     color = kwargs.pop("color", "red")
     color_ti = kwargs.pop("color_ti", "gray")
+    alpha_ti = kwargs.pop("alpha_ti", 0.2)
     is_opt_str = isinstance(show_opt, (str, list, tuple))
     # Defaults for mean-ROC.
     resolution = kwargs.pop("resolution", 101)
@@ -209,7 +210,7 @@ def plot_mean_roc(rocs, auto_flip=True, show_all=False, ax=None, **kwargs):
         tpr_upper = tpr_sort[int(0.975 * n_samples), :]
         label_int = "95% of all samples" if show_details else None
         ax.fill_between(ret_mean.fpr, tpr_lower, tpr_upper,
-                        color=color_ti, alpha=.2,
+                        color=color_ti, alpha=alpha_ti,
                         label=label_int,
                         zorder=zorder + 1)
     if show_ci:
