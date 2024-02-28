@@ -208,7 +208,7 @@ def plot_mean_roc(rocs, auto_flip=True, show_all=False, ax=None, **kwargs):
         tpr_upper = tpr_sort[int(0.975 * n_samples), :]
         label_int = "95% of all samples" if show_details else None
         ax.fill_between(ret_mean.fpr, tpr_lower, tpr_upper,
-                        color="gray", alpha=.2,
+                        color=color, alpha=.2,
                         label=label_int,
                         zorder=zorder + 1)
     if show_ci:
